@@ -3,6 +3,12 @@
 # Terrain
 _Scans [Hashicorp Terraform](https://www.terraform.io/) files and lists the resources and datasources used in alphabetical order for documentation purposes._
 
+## Installation
+`todo`
+
+## Usage
+`todo`
+
 ## Features
 - [ ] Parses all `.tf` files in the current directory
 - [ ] flags to choose what to show (resources, or datasources)
