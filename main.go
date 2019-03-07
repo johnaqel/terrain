@@ -26,7 +26,6 @@ type topLevel struct {
 }
 
 func main() {
-	println("Hello")
 
 	filename := "test.hcl"
 	var resources = []managedResource{}
