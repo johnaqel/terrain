@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "logs" {
   region = "${var.aws_region}"
-  bucket = "logs.chirp.co.nz"
+  bucket = "my.bucket.nzme"
   acl    = "log-delivery-write"
 
   tags {
