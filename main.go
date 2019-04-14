@@ -5,6 +5,7 @@ import (
 	gohcl2 "github.com/hashicorp/hcl2/gohcl"
 	hcl2 "github.com/hashicorp/hcl2/hcl"
 	hcl2parse "github.com/hashicorp/hcl2/hclparse"
+	"terrain/terraform"
 )
 
 type managedResource struct {
@@ -27,7 +28,7 @@ type topLevel struct {
 
 func main() {
 
-	filename := "test.hcl"
+	filename := "multi.tf"
 	var resources = []managedResource{}
 	var raw topLevel
 
@@ -50,5 +51,8 @@ func main() {
 	}
 
 	fmt.Printf("count: %d", len(resources))
+
+	scanner := terraform.NewConfig()
+	scanner.Run()
 
 }

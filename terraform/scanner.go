@@ -32,14 +32,39 @@ func populateConfigWithFileRefs(c *Config) {
 	// For each field in Config
 	for i := 0; i < root.NumField(); i++ {
 		fmt.Printf("%d: ", i)
-		field := root.Type().Field(i).Type
-		fmt.Println(field.Elem().Name())
+		field := root.Type().Field(i)
+		fmt.Println(field.Type.Elem().Name())
 
-		for j := 0; j < field.Elem().NumField(); j++ {
-			fmt.Printf("  %d: ", j)
-			innerfield := field.Elem().Field(j)
-			fmt.Println(innerfield.Name)
-		}
+		s := reflect.ValueOf(&field.Type).Elem()
+		s.FieldByName("SourceFile").SetString("hello")
+
+		/*
+			r2, _ := field.Type.Elem().FieldByName("SourceFile")
+			//ref := reflect.ValueOf(r2)
+			fmt.Println(r2.Type.)
+		*/
+
+		/*
+			r := reflect.ValueOf(field.Type).FieldByName("SourceFile")
+			fmt.Println(r.Kind().String())
+			if r.IsValid() {
+				fmt.Println("FTW")
+			}
+		*/
+		/*
+
+			src, _ := field.Type.Elem().FieldByName("SourceFile")
+			fmt.Println(src.Name)
+			srcv := reflect.ValueOf(src.Name)
+			srcv.SetString("Heloooo")
+
+			for j := 0; j < field.Type.Elem().NumField(); j++ {
+				fmt.Printf("  %d: ", j)
+				innerfield := field.Type.Elem().Field(j)
+				fmt.Println(innerfield.Name)
+
+			}
+		*/
 	}
 
 	// reflect.ValueOf(&n).Elem().FieldByName("N").SetInt(7)
