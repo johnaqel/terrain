@@ -1,5 +1,8 @@
 ![Logo](docs/images/terrain-logo.png)
 
+[![Build Status](https://img.shields.io/travis/NickLarsenNZ/terrain.svg)](https://travis-ci.org/NickLarsenNZ/terrain)
+[![Coveralls](https://img.shields.io/coveralls/NickLarsenNZ/terrain.svg)](http://coveralls.io/NickLarsenNZ/terrain)
+
 # Terrain
 _Scans [Hashicorp Terraform](https://www.terraform.io/) files and lists the resources and datasources used in alphabetical order for documentation purposes._
 
