@@ -1,22 +1,26 @@
 # Based on https://gist.github.com/y0ssar1an/df2dab474520c4086926f672c52db139
 language: go
-go:
-  - 1.12.x
 
-os:
-  - linux
-  - osx
-  - windows
-
-dist: xenial
-
-env:
-  - GO111MODULE=on # GO111MODULE will be unnecessary when Go 1.13 lands.
-#  - GOFLAGS='-mod vendor'
-
-# Only clone the most recent commit.
 git:
   depth: 1
+
+matrix:
+  include:
+    - os: linux
+      go: "1.12.x"
+      cache:
+        directories:
+          - $HOME/.cache/go-build
+          - $HOME/gopath/pkg/mod
+    - os: osx
+      go: "1.12.x"
+      cache:
+        directories:
+          - $HOME/Library/Caches/go-build
+          - $HOME/gopath/pkg/mod
+
+env:
+  - GO111MODULE=on
 
 install: true
 
